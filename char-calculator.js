@@ -1,3 +1,11 @@
+/*
+Problem statement:
+Write a function that takes a string and a character as its argument,
+and returns a number that indicates how many uppercase of that character
+are in the string.
+
+*/
+
 function findChar(string_val, findchar){
 	var str_length = string_val.length;
 	var counter = 0;

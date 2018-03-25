@@ -1,3 +1,8 @@
+/*
+ProWriteblem statement:
+Write a raw function that work same as Math.min
+*/
+
 function findminimum(param1, param2){
 	if(param1 != param2)
 		if(param1 < param2)
