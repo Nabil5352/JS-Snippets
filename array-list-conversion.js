@@ -23,7 +23,7 @@ Write a function arrayToList that builds up a data structure like the previous o
 Also write the helper functions prepend, which takes an element and a list and creates a new 
 list that adds the element to the front of the input list, and nth, which takes a list and a
 number and returns the element at the given position in the list, or underfined where there 
-is no such element. If you haven't already, also write a recursive version of th.
+is no such element. If you haven't already, also write a recursive version of nth.
 
 */
 
