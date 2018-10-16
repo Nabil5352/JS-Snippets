@@ -21,23 +21,23 @@ For the purposes of this test using the following data:
 
 Stations and zones:
 
-Station 		Zone(s)
-------------	-------
-Holborn 		1
-Earl’s Court 	1, 2
-Wimbledon 		3
-Hammersmith 	2
+Station         Zone(s)
+------------    -------
+Holborn         1
+Earl’s Court    1, 2
+Wimbledon       3
+Hammersmith     2
 
 Fares:
 
-Journey 								Fare
-------------------------------			------
-Anywhere in Zone 1 						£2.50
-Anyone zone outside zone 1 				£2.00
-Any two zones including zone 1 			£3.00
-Any two zones excluding zone 1 			£2.25
-Any three zones 						£3.20
-Any bus journey 						£1.80
+Journey                                 Fare
+------------------------------          ------
+Anywhere in Zone 1                      £2.50
+Anyone zone outside zone 1              £2.00
+Any two zones including zone 1          £3.00
+Any two zones excluding zone 1          £2.25
+Any three zones                         £3.20
+Any bus journey                         £1.80
 
 The maximum possible fare is therefore £3.20.
 */
