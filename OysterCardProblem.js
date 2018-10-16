@@ -111,41 +111,43 @@ function startJourney(fromPlace, toPlace){
 	setDebit(FARES.MAX_FARE);
 }
 function endJourney(swiped, vehicle_type){
-	if(swiped){
-		calculateFare(vehicle_type);
-		setCredit(FARES.MAX_FARE);
-		setDebit(NOW.fare);
-	}
+	calculateFare(swiped, vehicle_type);
+	setCredit(FARES.MAX_FARE);
+	setDebit(NOW.fare);
 }
-function calculateFare(vehicle_type){
-	if(vehicle_type === 'bus'){
-		NOW.fare = FARES.ANY_BUS_JOURNEY;
-	}else{
-		const crossedZone = getZoneNumbers();
-		const hasZone = hasInZone(1);
-		switch(crossedZone){
-			case 1:
-				if(!hasZone){
-					NOW.fare = FARES.ANY_ONE_ZONE_OUTSIDE_ZONE_1;
-				}
-				break;
-			case 2:
-				if(hasZone){
-					if(NOW.both_in_zone_1){
-						NOW.fare = FARES.ANYWHERE_IN_ZONE_1;
-					}else{
-						NOW.fare = FARES.ANY_TWO_ZONE_INCLUDE_ZONE_1;
+function calculateFare(swiped, vehicle_type){
+	if(swiped){
+		if(vehicle_type === 'bus'){
+			NOW.fare = FARES.ANY_BUS_JOURNEY;
+		}else{
+			const crossedZone = getZoneNumbers();
+			const hasZone = hasInZone(1);
+			switch(crossedZone){
+				case 1:
+					if(!hasZone){
+						NOW.fare = FARES.ANY_ONE_ZONE_OUTSIDE_ZONE_1;
 					}
-				}else{
-					NOW.fare = FARES.ANY_TWO_ZONE_EXCLUDE_ZONE_1;
-				}
-				break;
-			case 3:
-				NOW.fare = FARES.ANY_THREE_ZONE
-				break;
-			default:
-				break;
+					break;
+				case 2:
+					if(hasZone){
+						if(NOW.both_in_zone_1){
+							NOW.fare = FARES.ANYWHERE_IN_ZONE_1;
+						}else{
+							NOW.fare = FARES.ANY_TWO_ZONE_INCLUDE_ZONE_1;
+						}
+					}else{
+						NOW.fare = FARES.ANY_TWO_ZONE_EXCLUDE_ZONE_1;
+					}
+					break;
+				case 3:
+					NOW.fare = FARES.ANY_THREE_ZONE
+					break;
+				default:
+					break;
+			}
 		}
+	}else{
+		NOW.fare = FARES.MAX_FARE;
 	}
 }
 
@@ -159,6 +161,6 @@ startJourney('EARLS_COURT', 'CHELSEA');
 endJourney(true, 'bus');
 // Trip 3
 startJourney('EARLS_COURT', 'HAMMERSMITH');
-endJourney(true, 'tube');
+endJourney(false, 'tube');
 
 console.log(NOW.credit);
