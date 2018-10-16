@@ -73,9 +73,6 @@ function setCredit(credit){
 function setDebit(debit){
 	NOW.credit >= debit ? NOW.credit -= debit : console.log('Not enough credit');
 }
-function getCredit(credit){
-	return NOW.credit;
-}
 function getZoneNumbers(){
 	return noOfZones.size;
 }
