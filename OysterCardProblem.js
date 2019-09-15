@@ -153,11 +153,13 @@ setCredit(30);
 // Trip 1
 startJourney('HOLBORN', 'EARLS_COURT');
 endJourney(true, 'tube');
+console.log(NOW.fare, NOW.credit);
 // Trip 2
 startJourney('EARLS_COURT', 'CHELSEA');
 endJourney(true, 'bus');
+console.log(NOW.fare, NOW.credit);
 // Trip 3
 startJourney('EARLS_COURT', 'HAMMERSMITH');
-endJourney(false, 'tube');
+endJourney(true, 'tube');
 
-console.log(NOW.credit);
+console.log(NOW.fare, NOW.credit);
